@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,12 +25,18 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService service;
 	
+	
 	@GetMapping("/usuarios")
 	public ResponseEntity<List<Usuario>> lista(){
 		List<Usuario> lista = service.findAll();
 		return ResponseEntity.ok().body(lista);
 	}
 	
+	@GetMapping("/usuarios/{id}")
+	public ResponseEntity<Usuario> busca(@PathVariable Long id){
+		Usuario obj = service.busca(id);
+		return ResponseEntity.ok().body(obj);
+	}
 	
 	@PostMapping("usuarios/{id}")
 	public ResponseEntity<Void> insert(@Valid @RequestBody UsuarioDto objDto){
@@ -38,6 +45,7 @@ public class UsuarioController {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(usuario.getId()).toUri();	
 		return ResponseEntity.created(uri).build();
 	}
+	
 	
 	
 }
