@@ -21,4 +21,5 @@ public class ComicsController {
 		List<Comics> lista = comicsRepository.findAll();
 		return ResponseEntity.ok().body(lista);
 	}
+	
 }
