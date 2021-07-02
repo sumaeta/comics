@@ -17,9 +17,10 @@ public class UsuarioController {
 	private UsuarioRepository usuarioRepository;
 	
 	@RequestMapping("/usuarios")
-	public ResponseEntity<List<Usuario>> lista(Usuario obj){
+	public ResponseEntity<List<Usuario>> lista(){
 		List<Usuario> lista = usuarioRepository.findAll();
 		return ResponseEntity.ok().body(lista);
 	}
+	
 	
 }
