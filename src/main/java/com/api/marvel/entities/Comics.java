@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.Length;
+
 @Entity
 public class Comics {
 	
@@ -17,6 +19,8 @@ public class Comics {
 	private Double preco;
 	private String autores;
 	private Integer isbn;
+	
+	@Length(min = 5, max = 255, message = "Minimo deve ser 5 caracteres e o máximo deve ser 255 caracteres")
 	private String descricao;
 	
 	public Comics() {
