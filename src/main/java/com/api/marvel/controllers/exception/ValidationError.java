@@ -3,7 +3,7 @@ package com.api.marvel.controllers.exception;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ValidationError extends StandardError{
+public class ValidationError extends StandardError {
 
 	
 	private static final long serialVersionUID = 1L;
@@ -22,6 +22,5 @@ public class ValidationError extends StandardError{
 	public void addError(String fieldName, String message) {
 		errors.add(new FieldMessage(fieldName, message));
 	}
-
-}
 	
+}
