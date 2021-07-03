@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Usuario implements Serializable{
@@ -18,15 +21,22 @@ public class Usuario implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotNull
+	@Length(min = 5, max = 120, message = "Inserir um nome que tenha entre 10 e 100 caracteres")
 	private String nome;
 	
 	@Column(unique = true)
 	@Email
+	@NotNull
+	@Length(min = 10, max = 100, message = "Inserir um email que tenha entre 10 e 100 caracteres")
 	private String email;
 	
 	@Column(unique = true)
+	@NotNull
+	@Length(max = 11)
 	private String cpf;
 	
+	@NotNull
 	private String dataNascimento;
 	
 	public Usuario() {
