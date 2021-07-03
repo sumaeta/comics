@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import com.api.marvel.dto.UsuarioDto;
 import com.api.marvel.entities.Usuario;
@@ -34,7 +33,7 @@ public class UsuarioService {
 		 "Objeto não encontrado! Id: " + id + ", Tipo: " + Usuario.class.getName()));
 		} 
 	
-	
+	//tranformando de usuariodto pra usuario
 	public Usuario fromDTO(UsuarioDto objDto) {
 		return new Usuario(objDto.getId(), objDto.getNome(), objDto.getEmail(), objDto.getCpf(), objDto.getDataNascimento());
 	}

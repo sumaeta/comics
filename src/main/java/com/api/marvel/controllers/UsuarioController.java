@@ -38,7 +38,7 @@ public class UsuarioController {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@PostMapping("usuarios/{id}")
+	@PostMapping("/usuarios")
 	public ResponseEntity<Void> insert(@Valid @RequestBody UsuarioDto objDto){
 		Usuario usuario = service.fromDTO(objDto);
 		usuario = service.insert(usuario);
