@@ -3,8 +3,6 @@ package com.api.marvel.controllers.exception;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.api.marvel.services.exceptions.FieldMessage;
-
 public class ValidationError extends StandardError{
 
 	

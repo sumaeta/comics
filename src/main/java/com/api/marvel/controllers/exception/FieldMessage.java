@@ -1,4 +1,4 @@
-package com.api.marvel.services.exceptions;
+package com.api.marvel.controllers.exception;
 
 import java.io.Serializable;
 
