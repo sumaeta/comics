@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -22,6 +24,11 @@ public class Comics {
 	
 	@Length(min = 5, max = 255, message = "Minimo deve ser 5 caracteres e o máximo deve ser 255 caracteres")
 	private String descricao;
+	
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
+	
 	
 	public Comics() {
 	}

@@ -27,27 +27,6 @@ public class MarvelController {
 		return ResponseEntity.ok().body(comics);
 	}
 	
-	/*
-	public void apiMarvel() {
-		
-		String apiUrl = "gateway.marvel.com";
-		String timeStamp = "1625417799";
-		String apiKey = "cd5e3408e8d647534f2c202635620ba9";
-		String md5 = "f8353910e6768293edb183c8cbd0803a";
-		
-		//https://gateway.marvel.com/v1/public/comics + ${timeStamp} + ${apiKey} + ${md5}
-		
-		UriComponents uri = UriComponentsBuilder.newInstance()
-				.scheme("https")
-				.host(apiUrl)
-				.path("v1/public/" + timeStamp + apiKey + md5)
-				.query("")
-				.build();
-		
-		ResponseEntity<Marvel> entity = template.getForEntity(uri.toUriString(), Marvel.class);
 	
-		System.out.println(entity.getBody().getComicsId());
-	}
 	
-	*/
 }
