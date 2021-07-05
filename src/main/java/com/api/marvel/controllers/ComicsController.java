@@ -7,9 +7,9 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -19,19 +19,21 @@ import com.api.marvel.repositories.ComicsRepository;
 import com.api.marvel.services.ComicsService;
 
 @RestController
-public class ComicsController {
+public class ComicsController{
 
+	
 	@Autowired
 	private ComicsRepository comicsRepository;
 	
 	@Autowired
 	private ComicsService service;
 	
-	@RequestMapping("/comics")
+	@GetMapping("/comics")
 	public ResponseEntity<List<Comics>> listar(){
 		List<Comics> lista = comicsRepository.findAll();
 		return ResponseEntity.ok().body(lista);
 	}
+	
 	
 	@PostMapping("/comics")
 	public ResponseEntity<Void> insert(@Valid @RequestBody ComicsDto objDto){
@@ -40,5 +42,9 @@ public class ComicsController {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(comics.getId()).toUri();	
 		return ResponseEntity.created(uri).build();
 	}
+
+
+	
+	
 	
 }

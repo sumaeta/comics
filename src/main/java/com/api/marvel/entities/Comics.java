@@ -128,6 +128,13 @@ public class Comics {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Comics [id=" + id + ", comicsId=" + comicsId + ", titulo=" + titulo + ", preco=" + preco + ", autores="
+				+ autores + ", isbn=" + isbn + ", descricao=" + descricao + ", usuario=" + usuario + "]";
+	}
+	
 	
 	
 	
