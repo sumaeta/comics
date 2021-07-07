@@ -22,5 +22,13 @@ public class ComicsService {
 		public Comics fromDTO(ComicsDto objDto) {
 			return new Comics(objDto.getComicsId(), objDto.getTitulo(), objDto.getPreco(), objDto.getAutores(), objDto.getIsbn(), objDto.getDescricao());
 		}
+
+		
+		public Comics busca(Long id){
+			Comics obj = repository.getById(id);
+			return obj;
+		}
+
+
 	
 }

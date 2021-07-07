@@ -20,7 +20,6 @@ import com.api.marvel.services.ComicsService;
 
 @RestController
 public class ComicsController{
-
 	
 	@Autowired
 	private ComicsRepository comicsRepository;
@@ -42,9 +41,6 @@ public class ComicsController{
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(comics.getId()).toUri();	
 		return ResponseEntity.created(uri).build();
 	}
-
-
-	
 	
 	
 }

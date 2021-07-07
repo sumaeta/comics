@@ -1,64 +1,102 @@
 package com.api.marvel.dto;
 
+import java.io.Serializable;
+
 import com.api.marvel.entities.Comics;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class ComicsDto {
+public class ComicsDto implements Serializable{
 
-	private String comicsId;
-	private String titulo;
-	private Double preco;
-	private String autores;
-	private Integer isbn;
-	private String descricao;
+	private static final long serialVersionUID = 1L;
+
+	@JsonProperty("id")
+	private Integer id;
+	
+	@JsonProperty("title")
+	private String title;
+	
+	@JsonProperty("price")
+	private Double price;
+	
+	@JsonProperty("creator")
+	private String creator;
+	
+	@JsonProperty("isbn")
+	private String isbn;
+	
+	@JsonProperty("description")
+	private String description;
 	
 	public ComicsDto() {
-		super();
 	}
+	
 	public ComicsDto(Comics obj) {
 		super();
-		comicsId = obj.getComicsId();
-		titulo = obj.getTitulo();
-		preco = obj.getPreco();
-		autores = obj.getAutores();
+		id = obj.getComicsId();
+		creator = obj.getTitulo();
+		price = obj.getPreco();
+		creator = obj.getAutores();
 		isbn = obj.getIsbn();
-		descricao = obj.getDescricao();
+		description = obj.getDescricao();
 	}
-	public String getComicsId() {
-		return comicsId;
+	
+	public int getComicsId() {
+		return id;
 	}
-	public void setComicsId(String comicsId) {
-		this.comicsId = comicsId;
+	
+	public void setComicsIdd(int id) {
+		this.id = id;
 	}
+	
 	public String getTitulo() {
-		return titulo;
+		return creator;
 	}
+	
 	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+		this.creator = titulo;
 	}
+	
 	public Double getPreco() {
-		return preco;
+		return price;
 	}
+	
 	public void setPreco(Double preco) {
-		this.preco = preco;
+		this.price = preco;
 	}
+	
 	public String getAutores() {
-		return autores;
+		return creator;
 	}
+	
 	public void setAutores(String autores) {
-		this.autores = autores;
+		this.creator = autores;
 	}
-	public Integer getIsbn() {
+	
+	public String getIsbn() {
 		return isbn;
 	}
-	public void setIsbn(Integer isbn) {
+	
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
+	
 	public String getDescricao() {
-		return descricao;
+		return description;
 	}
+	
 	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+		this.description = descricao;
 	}
 	
-	
+	public void converteJson(ObjectMapper mapper, String json) throws JsonProcessingException {
+		 try {
+			mapper.readValue(json, getClass()).getComicsId();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+			System.out.println("Erro ao pegar status da solicitação da proposta");
+		}
+}
 }

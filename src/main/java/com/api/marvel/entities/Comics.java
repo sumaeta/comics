@@ -1,5 +1,7 @@
 package com.api.marvel.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,17 +12,19 @@ import javax.persistence.ManyToOne;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-public class Comics {
+public class Comics implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String comicsId;
+	private Integer comicsId;
 	private String titulo;
 	private Double preco;
 	private String autores;
-	private Integer isbn;
+	private String isbn;
 	
 	@Length(min = 5, max = 255, message = "Minimo deve ser 5 caracteres e o máximo deve ser 255 caracteres")
 	private String descricao;
@@ -33,7 +37,7 @@ public class Comics {
 	public Comics() {
 	}
 
-	public Comics(String comicsId, String titulo, Double preco, String autores, Integer isbn, String descricao) {
+	public Comics(int comicsId, String titulo, Double preco, String autores, String isbn, String descricao) {
 		this.comicsId = comicsId;
 		this.titulo = titulo;
 		this.preco = preco;
@@ -50,11 +54,11 @@ public class Comics {
 		this.id = id;
 	}
 
-	public String getComicsId() {
+	public int getComicsId() {
 		return comicsId;
 	}
 
-	public void setComicsId(String comicsId) {
+	public void setComicsId(int comicsId) {
 		this.comicsId = comicsId;
 	}
 
@@ -82,11 +86,11 @@ public class Comics {
 		this.autores = autores;
 	}
 
-	public Integer getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(Integer isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 
