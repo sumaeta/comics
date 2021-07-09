@@ -20,9 +20,9 @@ public class Comics implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Integer comicsId;
+	private Integer comicId;
 	private String titulo;
-	private Double preco;
+	private Float preco;
 	private String autores;
 	private String isbn;
 	
@@ -37,8 +37,8 @@ public class Comics implements Serializable{
 	public Comics() {
 	}
 
-	public Comics(int comicsId, String titulo, Double preco, String autores, String isbn, String descricao) {
-		this.comicsId = comicsId;
+	public Comics(int comicId, String titulo, Float preco, String autores, String isbn, String descricao) {
+		this.comicId = comicId;
 		this.titulo = titulo;
 		this.preco = preco;
 		this.autores = autores;
@@ -54,12 +54,12 @@ public class Comics implements Serializable{
 		this.id = id;
 	}
 
-	public int getComicsId() {
-		return comicsId;
+	public int getComicId() {
+		return comicId;
 	}
 
 	public void setComicsId(int comicsId) {
-		this.comicsId = comicsId;
+		this.comicId = comicsId;
 	}
 
 	public String getTitulo() {
@@ -70,11 +70,11 @@ public class Comics implements Serializable{
 		this.titulo = titulo;
 	}
 
-	public Double getPreco() {
+	public Float getPreco() {
 		return preco;
 	}
 
-	public void setPreco(Double preco) {
+	public void setPreco(Float preco) {
 		this.preco = preco;
 	}
 
@@ -135,7 +135,7 @@ public class Comics implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Comics [id=" + id + ", comicsId=" + comicsId + ", titulo=" + titulo + ", preco=" + preco + ", autores="
+		return "Comics [id=" + id + ", comicId=" + comicId + ", titulo=" + titulo + ", preco=" + preco + ", autores="
 				+ autores + ", isbn=" + isbn + ", descricao=" + descricao + ", usuario=" + usuario + "]";
 	}
 	

@@ -1,10 +1,10 @@
-package com.api.marvel.marvel;
+package com.api.marvel.dto.marvel;
 
-public class StorySummary {
+public class CharacterSummary {
 
 	private String resourceURI;
 	private String name;
-	private String type;
+	private String role;
 	
 	public String getResourceURI() {
 		return resourceURI;
@@ -12,8 +12,8 @@ public class StorySummary {
 	public String getName() {
 		return name;
 	}
-	public String getType() {
-		return type;
+	public String getRole() {
+		return role;
 	}
 	
 	

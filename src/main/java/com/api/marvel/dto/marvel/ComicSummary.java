@@ -1,4 +1,4 @@
-package com.api.marvel.marvel;
+package com.api.marvel.dto.marvel;
 
 public class ComicSummary {
 

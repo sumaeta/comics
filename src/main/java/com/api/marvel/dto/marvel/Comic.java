@@ -1,7 +1,6 @@
-package com.api.marvel.marvel;
+package com.api.marvel.dto.marvel;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Comic {
 
@@ -11,7 +10,7 @@ public class Comic {
 	private Double issueNumber;
 	private String variantDescription ;
 	private String description;
-	private Date modified;
+	private String modified;
 	private String isbn;
 	private String upc;
 	private String diamondCode;
@@ -53,7 +52,7 @@ public class Comic {
 	public String getDescription() {
 		return description;
 	}
-	public Date getModified() {
+	public String getModified() {
 		return modified;
 	}
 	public String getIsbn() {

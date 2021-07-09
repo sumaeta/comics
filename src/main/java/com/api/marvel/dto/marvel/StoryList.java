@@ -1,14 +1,13 @@
-package com.api.marvel.marvel;
+package com.api.marvel.dto.marvel;
 
 import java.util.ArrayList;
 
-public class EventList {
+public class StoryList {
 
 	private Integer available;
 	private Integer returned;
 	private String collectionURI;
-	private ArrayList<EventSummary> items;
-	
+	private ArrayList<StorySummary> items;
 	public Integer getAvailable() {
 		return available;
 	}
@@ -18,7 +17,7 @@ public class EventList {
 	public String getCollectionURI() {
 		return collectionURI;
 	}
-	public ArrayList<EventSummary> getItems() {
+	public ArrayList<StorySummary> getItems() {
 		return items;
 	}
 	
