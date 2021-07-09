@@ -1,32 +1,36 @@
 package com.api.marvel.controllers;
 
-import java.net.URI;
-import java.util.List;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.api.marvel.dto.ComicsDto;
-import com.api.marvel.entities.Comics;
-import com.api.marvel.repositories.ComicsRepository;
+import com.api.marvel.marvel.ComicDataWrapper;
 import com.api.marvel.services.ComicsService;
 
 @RestController
 public class ComicsController{
 	
 	@Autowired
-	private ComicsRepository comicsRepository;
-	
-	@Autowired
 	private ComicsService service;
 	
+	@RequestMapping(value = "teste", method = RequestMethod.GET)
+    public ResponseEntity<ComicDataWrapper> listar() {
+        ComicDataWrapper response = service.qualquerCoisa();
+        
+        return ResponseEntity.ok(response);
+    }
+	
+	
+	/*
+	 * 
+	 * @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Cliente> find(@PathVariable Integer id) {
+			Cliente obj = service.find(id);
+			return ResponseEntity.ok().body(obj);
+	}
+	 
 	@GetMapping("/comics")
 	public ResponseEntity<List<Comics>> listar(){
 		List<Comics> lista = comicsRepository.findAll();
@@ -34,6 +38,7 @@ public class ComicsController{
 	}
 	
 	
+	/*
 	@PostMapping("/comics")
 	public ResponseEntity<Void> insert(@Valid @RequestBody ComicsDto objDto){
 		Comics comics = service.fromDTO(objDto);
@@ -41,6 +46,6 @@ public class ComicsController{
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(comics.getId()).toUri();	
 		return ResponseEntity.created(uri).build();
 	}
-	
+	*/
 	
 }
