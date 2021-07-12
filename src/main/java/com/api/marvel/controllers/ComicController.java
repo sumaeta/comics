@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.marvel.dto.marvel.ComicDataWrapper;
-import com.api.marvel.services.ComicsServiceBuscaId;
+import com.api.marvel.services.ComicServiceBuscaId;
 
 @RestController
-public class ComicsController{
+public class ComicController {
 	
 	@Autowired
-	private ComicsServiceBuscaId service;
+	private ComicServiceBuscaId service;
 	
 	@RequestMapping(value = "comics/{id}", method = RequestMethod.GET)
 	public ResponseEntity<ComicDataWrapper> buscar(@PathVariable Integer id){

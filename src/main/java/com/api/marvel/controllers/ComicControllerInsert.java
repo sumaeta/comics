@@ -17,7 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-public class ComicsControllerInsert {
+	public class ComicControllerInsert {
 
 	@Autowired
 	private ComicInsert insert;

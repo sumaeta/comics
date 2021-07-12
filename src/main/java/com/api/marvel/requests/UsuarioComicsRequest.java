@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class UsuarioRevistasRequest {
+public class UsuarioComicsRequest {
 
     @JsonProperty("id_usuario")
     private Long idUsuario;

@@ -15,7 +15,7 @@ import com.api.marvel.dto.marvel.ComicDataWrapper;
 
 
 @Service
-public class ComicsServiceBuscaId {
+public class ComicServiceBuscaId {
 
 	@Value("${marvel.privatekey}")
 	private String chavePrivada;
@@ -25,18 +25,18 @@ public class ComicsServiceBuscaId {
 	
 	 public ComicDataWrapper buscarId(@PathVariable Integer id) {
 		 
-	 RestTemplate client = new RestTemplate();
+         RestTemplate client = new RestTemplate();
 
-     HttpHeaders headers = new HttpHeaders();
-     headers.setContentType(MediaType.APPLICATION_JSON);
+         HttpHeaders headers = new HttpHeaders();
+         headers.setContentType(MediaType.APPLICATION_JSON);
 
-     HttpEntity<?> request = new HttpEntity<>(null, headers);
+         HttpEntity<?> request = new HttpEntity<>(null, headers);
      
      Long time = System.currentTimeMillis();
      
      String chaves = time + chavePrivada + chavePublica;
 
-     String hash = DigestUtils.md5DigestAsHex(chaves.getBytes());
+         String hash = DigestUtils.md5DigestAsHex(chaves.getBytes());
      
 
      ResponseEntity<ComicDataWrapper> response = client.exchange(

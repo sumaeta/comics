@@ -1,8 +1,6 @@
 package com.api.marvel.services;
 
-import com.api.marvel.dto.marvel.Comic;
 import com.api.marvel.dto.marvel.ComicDataWrapper;
-import com.api.marvel.requests.ComicRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -10,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.api.marvel.entities.Comics;
 import com.api.marvel.repositories.ComicsRepository;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,30 +16,13 @@ public class ComicInsert {
 	@Autowired
 	private ComicsRepository repo;
 	@Autowired
-	private ComicsServiceBuscaId comicsServiceBuscaId;
-	
-	//insere quando o id é nulo
-	public Comics insert(Comics obj) {
-		obj.setId(null);
-		return repo.save(obj);
-	}
-
-//	public List<Comics> save(List<ComicRequest> listaComicsId) {
-//		List<Comics> comics = new ArrayList<>();
-//
-//		listaComicsId.forEach(comicRequest -> {
-//			Comics comic = save(comicRequest.getIdRevista());
-//			comics.add(comic);
-//		});
-//
-//		return comics;
-//	}
+	private ComicServiceBuscaId comicServiceBuscaId;
 
 	public Comics save(Integer idRevista) {
 		Optional<Comics> optional = this.repo.findByComicId(idRevista);
 
 		if (optional.isEmpty()) {
-			ComicDataWrapper comicDataWrapper = this.comicsServiceBuscaId.buscarId(idRevista);
+			ComicDataWrapper comicDataWrapper = this.comicServiceBuscaId.buscarId(idRevista);
 			Comics comic = new Comics(
 					comicDataWrapper.getData().getResults().get(0).getId(),
 					comicDataWrapper.getData().getResults().get(0).getTitle(),
