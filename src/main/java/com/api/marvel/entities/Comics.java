@@ -2,16 +2,13 @@ package com.api.marvel.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
+@Table(name = "comics")
 public class Comics implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -19,14 +16,18 @@ public class Comics implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
+	@JsonProperty("comics_id")
 	private Integer comicId;
-	private String titulo;
-	private Float preco;
+	@JsonProperty("titulo")
+	private String title;
+	@JsonProperty("preco")
+	private Float price;
 	private String autores;
 	private String isbn;
-	
-	@Length(min = 5, max = 255, message = "Minimo deve ser 5 caracteres e o máximo deve ser 255 caracteres")
+
+	@Column(length = 100000)
+//	@Length(min = 5, max = 255, message = "Minimo deve ser 5 caracteres e o máximo deve ser 255 caracteres")
 	private String descricao;
 	
 	@ManyToOne
@@ -37,10 +38,10 @@ public class Comics implements Serializable{
 	public Comics() {
 	}
 
-	public Comics(int comicId, String titulo, Float preco, String autores, String isbn, String descricao) {
+	public Comics(int comicId, String title, Float price, String autores, String isbn, String descricao) {
 		this.comicId = comicId;
-		this.titulo = titulo;
-		this.preco = preco;
+		this.title = title;
+		this.price = price;
 		this.autores = autores;
 		this.isbn = isbn;
 		this.descricao = descricao;
@@ -63,19 +64,19 @@ public class Comics implements Serializable{
 	}
 
 	public String getTitulo() {
-		return titulo;
+		return title;
 	}
 
 	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+		this.title = titulo;
 	}
 
 	public Float getPreco() {
-		return preco;
+		return price;
 	}
 
 	public void setPreco(Float preco) {
-		this.preco = preco;
+		this.price = preco;
 	}
 
 	public String getAutores() {
@@ -135,7 +136,7 @@ public class Comics implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Comics [id=" + id + ", comicId=" + comicId + ", titulo=" + titulo + ", preco=" + preco + ", autores="
+		return "Comics [id=" + id + ", comicId=" + comicId + ", title=" + title + ", price=" + price + ", autores="
 				+ autores + ", isbn=" + isbn + ", descricao=" + descricao + ", usuario=" + usuario + "]";
 	}
 	

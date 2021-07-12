@@ -1,11 +1,7 @@
-package com.api.marvel.dto;
+package com.api.marvel.dto.marvel;
 
-import com.api.marvel.dto.marvel.Comic;
-import com.api.marvel.dto.marvel.ComicPrice;
-import com.api.marvel.dto.marvel.CreatorList;
+public class MarvelDto {
 
-public class ComicsDto {
-	
 	private Integer id;
 	private String title;
 	private Float price;
@@ -13,11 +9,10 @@ public class ComicsDto {
 	private String isbn;
 	private String description;
 	
-	
-	public ComicsDto() {
+	public MarvelDto() {
 	}
 	
-	public ComicsDto(Comic obj, ComicPrice prices, CreatorList creator) {
+	public MarvelDto(Comic obj, ComicPrice prices, CreatorList creator) {
 		id = obj.getId();
 		title = obj.getTitle();
 		price = prices.getPrice();
@@ -25,8 +20,7 @@ public class ComicsDto {
 		isbn = obj.getIsbn();
 		description = obj.getDescription();
 	}
-	
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -49,7 +43,5 @@ public class ComicsDto {
 
 	public String getDescription() {
 		return description;
-	}
-		 
+	} 
 }
-
